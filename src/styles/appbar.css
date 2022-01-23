@@ -2,6 +2,12 @@
   border-style: solid;
   border-width: 0.25px;
   border-color: grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .appbarElements {
@@ -24,5 +30,10 @@ p {
 
 i:hover {
   cursor: pointer;
+}
+
+.addTask {
+  margin-left: auto;
+  margin-right: auto;
 }
 /*# sourceMappingURL=appbar.css.map */
