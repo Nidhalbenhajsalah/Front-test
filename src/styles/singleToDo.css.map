@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,MAAM,EAAE,cAAc;EACtB,aAAa,EAAE,IAAI;EACnB,KAAK,EAAE,GAAG;EACV,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,IAAI;EACb,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CACzB;;AAED,AAAA,WAAW,CAAA;EACP,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;EACnB,aAAa,EAAE,EAAE;CAEpB;;AACD,AAAA,YAAY,CAAA;EACR,aAAa,EAAE,EAAE;CAEpB",
+    "sources": [
+        "singleToDo.scss"
+    ],
+    "names": [],
+    "file": "singleToDo.css"
+}

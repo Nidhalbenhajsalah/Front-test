@@ -1,0 +1,20 @@
+.body{
+    // margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid grey;
+    padding-top: 5vh;
+}
+
+.status{
+    width: '33%';
+    padding-bottom: 3vh;
+    margin: 5vw;
+}
+
+.statusTitle{
+    text-align:'left';
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 5vh;
+}
