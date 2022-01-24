@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/singleToDo.css';
+// import '../styles/singleToDo.css';
 
 export default function singleToDo() {
     return <div className='card'>

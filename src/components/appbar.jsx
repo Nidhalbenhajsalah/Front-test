@@ -2,15 +2,19 @@ import React from 'react';
 import '../styles/appbar.css';
 import Modal from 'react-modal'
 import { useState, useEffect } from 'react';
-import tasks from '../data'
+import axios from 'axios';
 
 Modal.setAppElement('#root');
 const Appbar = () => {
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [task, setTask] = useState({
         title: '',
         description: '',
+        status: '',
     });
+
+
 
     const handleChange = (e) => {
         setTask({
@@ -18,11 +22,17 @@ const Appbar = () => {
             [e.target.name]: e.target.value
         })
     }
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        tasks.push(task);
-        setModalIsOpen(false);
-        localStorage.setItem('task', JSON.stringify(tasks))
+        const postURL = 'http://localhost:5000';
+        try {
+            await axios.post(postURL, task);
+            setModalIsOpen(false);
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 
     return <div className='appbar'>
