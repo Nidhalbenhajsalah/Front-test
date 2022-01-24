@@ -1,11 +1,29 @@
 import React from 'react';
 import '../styles/appbar.css';
 import Modal from 'react-modal'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import tasks from '../data'
 
 Modal.setAppElement('#root');
 const Appbar = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [task, setTask] = useState({
+        title: '',
+        description: '',
+    });
+
+    const handleChange = (e) => {
+        setTask({
+            ...task,
+            [e.target.name]: e.target.value
+        })
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        tasks.push(task);
+        setModalIsOpen(false);
+        localStorage.setItem('task', JSON.stringify(tasks))
+    }
 
     return <div className='appbar'>
         <div className='appbarElements'>
@@ -17,7 +35,7 @@ const Appbar = () => {
         <div className='addTask'>
             <i className="fas fa-plus" onClick={() => setModalIsOpen(true)}></i>
         </div>
-        <Modal isOpen={modalIsOpen}
+        <Modal id='modal' isOpen={modalIsOpen}
             onRequestClose={() => setModalIsOpen(false)}
             style={
                 {
@@ -30,14 +48,29 @@ const Appbar = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         padding: '20px',
-                        width: '500px',
+                        width: '20vw',
                         height: '10vh',
+                        margin: 'auto',
                     }
                 }}
         >
-            <input type='text' placeholder='Title' />
-            <textarea placeholder='Description' />
-            <button onClick={() => setModalIsOpen(false)}>Close</button>
+            <input
+                className='input'
+                name='title'
+                type='text'
+                placeholder='Title'
+                style={{ backgroundColor: 'white', color: 'black' }}
+                onChange={handleChange}
+            />
+            <textarea
+                className='input'
+                name='description'
+                placeholder='Description'
+                style={{ backgroundColor: 'white', color: 'black' }}
+                onChange={handleChange}
+            />
+
+            <button onClick={handleSubmit}>save</button>
         </Modal>
 
     </div >;
