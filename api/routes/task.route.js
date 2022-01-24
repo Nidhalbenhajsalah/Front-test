@@ -10,4 +10,7 @@ router.route('/').get(taskController.findAll);
 //Delete a task
 router.route('/:id').delete(taskController.delete);
 
+//Update a task
+router.route('/:id').put(taskController.update);
+
 module.exports = router;
