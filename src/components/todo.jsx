@@ -9,6 +9,7 @@ import '../styles/singleToDo.css';
 export default function Todo() {
     const [tasks, setTasks] = useState([])
 
+
     useEffect(() => {
         const getTasks = async () => {
             const result = await axios.get('http://localhost:5000');
@@ -16,6 +17,16 @@ export default function Todo() {
         }
         getTasks();
     }, [tasks])
+
+    const deleteTask = async (id) => {
+        try {
+            await axios.delete(`http://localhost:5000/${id}`);
+            setTasks(tasks.filter(task => task.id !== id))
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     return <div className='status'>
         <div className='statusTitle'>
@@ -32,8 +43,8 @@ export default function Todo() {
                     <span>{task.description}</span>
                 </div>
                 <div className='bottom'>
-                    <i class="far fa-trash-alt"></i>
-                    <i class="far fa-edit"></i>
+                    <i className="far fa-trash-alt" onClick={() => deleteTask(task._id)}></i>
+                    <i className="far fa-edit"></i>
                 </div>
             </div>
         )}

@@ -36,5 +36,43 @@ exports.findAll = async (req, res) => {
         });
 }
 
+//delete a task
+exports.delete = (req, res) => {
+    const id = req.params.id;
+    Task.findByIdAndRemove(id)
+        .then(task => {
+            if (!task) {
+                return res.status(404).send({
+                    message: "Task not found with id "
+                });
+            }
+            res.send({ message: "Task deleted successfully!" });
+        }).catch(err => {
+            res.status(500).send({
+                message: "Could not delete task with id "
+            });
+        });
+}
+
+//update a task
+exports.update = (req, res) => {
+    const id = req.params.id;
+    Task.findByIdAndUpdate(id, req.body)
+        .then(task => {
+            if (!task) {
+                return res.status(404).send({
+                    message: "Task not found with id "
+                });
+            }
+            res.send(task);
+        }
+        ).catch(err => {
+            res.status(500).send({
+                message: "Could not update task with id "
+            });
+        });
+}
+
+
 
 
