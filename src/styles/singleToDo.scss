@@ -1,12 +1,13 @@
 .card{
     border: 1px solid grey;
     border-radius: 10px;
-    width: 80%;
-    height: 35%;
-    margin-bottom: 2.5%;
-    padding: 2.5%;
+    width: 20vw;
+    height: fit-content;
+    margin-bottom: 2vh;
+    padding: 2.5vh;
     display: flex;
     flex-direction: column;
+    vertical-align: auto;
 
 }
 
@@ -14,18 +15,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5%;
+    margin-bottom: auto;
 
     
 }
 .description{
-    margin-bottom: 5%;
+    margin-top: 2.5vh;
+    margin-bottom: auto;
 
 }
 
 .bottom{
+    padding: 2vh;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 5%;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-between;
+
+    
+   
 }

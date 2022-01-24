@@ -1,10 +1,12 @@
 .card {
   border: 1px solid grey;
   border-radius: 10px;
-  width: 80%;
-  height: 35%;
-  margin-bottom: 2.5%;
-  padding: 2.5%;
+  width: 20vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 2vh;
+  padding: 2.5vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,6 +14,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  vertical-align: auto;
 }
 
 .cardHeader {
@@ -24,23 +27,26 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 5%;
+  margin-bottom: auto;
 }
 
 .description {
-  margin-bottom: 5%;
+  margin-top: 2.5vh;
+  margin-bottom: auto;
 }
 
 .bottom {
+  padding: 2vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 5%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=singleToDo.css.map */

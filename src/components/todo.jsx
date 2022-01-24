@@ -63,10 +63,10 @@ export default function Todo() {
                 </div>
                 <div className='description'>
                     <span>{task.description}</span>
-                </div>
-                <div className='bottom'>
-                    <i className="far fa-trash-alt" onClick={() => deleteTask(task._id)}></i>
-                    <i className="far fa-edit" onClick={() => setModalIsOpen(true)}></i>
+                    <div className='bottom'>
+                        <i className="far fa-trash-alt" onClick={() => deleteTask(task._id)}></i>
+                        <i className="far fa-edit" onClick={() => setModalIsOpen(true)}></i>
+                    </div>
                 </div>
                 {/* pop up box for updating task */}
                 <Modal id='modal' isOpen={modalIsOpen}
