@@ -44,11 +44,12 @@ export default function Todo() {
     }
 
     const handleUpdate = async (id) => {
-        // e.preventDefault();
         const result = await axios.put(`http://localhost:5000/${id}`, task);
         console.log(result);
         setModalIsOpen(false);
     }
+
+
 
 
     return <div className='status'>
@@ -57,7 +58,7 @@ export default function Todo() {
 
         </div>
         {tasks.map((task, index) =>
-            <div className='card' key={index}>
+            <div className='card' key={index} draggable>
                 <div className='cardHeader'>
                     <span>{task.title}</span>
                 </div>
