@@ -10,7 +10,7 @@ exports.createTask = async (req, res) => {
     const task = new Task({
         title: req.body.title,
         description: req.body.description,
-        status: req.body.status,
+        status: req.body.status || 'todo',
 
     });
     task.save(task)

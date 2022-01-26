@@ -6,10 +6,20 @@ import Modal from 'react-modal'
 import '../styles/body.css';
 
 Modal.setAppElement('#root');
-export default function Body() {
-    return <div className='body'>
-        <Todo />
-        <InProgress />
-        <Done />
-    </div>;
+
+const Body = () => {
+
+
+
+
+
+    return (
+        <div className='body'>
+            <Todo />
+            <InProgress />
+            <Done />
+        </div>
+    )
 }
+
+export default Body;

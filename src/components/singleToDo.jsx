@@ -5,12 +5,12 @@ import Modal from 'react-modal'
 import axios from 'axios';
 import '../styles/singleToDo.css';
 
-const SingleToDo = () => {
+const SingleToDo = ({ status }) => {
+
     const [tasks, setTasks] = useState([])
     const [task, setTask] = useState({
         title: '',
         description: '',
-        status: '',
     });
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -19,10 +19,11 @@ const SingleToDo = () => {
         const getTasks = async () => {
             const result = await axios.get('http://localhost:5000');
             setTasks(result.data);
-            abortController.abort();
         }
         getTasks();
+        abortController.abort();
     }, [tasks])
+
 
     const deleteTask = async (id) => {
         try {
@@ -47,11 +48,16 @@ const SingleToDo = () => {
         })
     }
 
+    const onDragStart = (e, id) => {
+        console.log('dragstart', id);
+        e.dataTransfer.setData('id', id);
+    }
+
     return (<div>
-        {tasks.map(el =>
+        {tasks.filter(el => el.status === status).map(el =>
             <div key={el._id} className='card'
                 draggable
-            // onDragStart={(e) => onDragStart(e, task._id)}
+                onDragStart={(e) => onDragStart(e, el._id)}
             >
                 <div className='cardHeader'>
                     <span>{el.title}</span>
@@ -63,7 +69,6 @@ const SingleToDo = () => {
                         <i className="far fa-edit" onClick={() => setModalIsOpen(true)}></i>
                     </div>
                 </div>
-                {/* pop up box for updating task */}
                 <Modal id='modal' isOpen={modalIsOpen}
                     onRequestClose={() => setModalIsOpen(false)}
                     style={
